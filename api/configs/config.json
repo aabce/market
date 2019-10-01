@@ -1,0 +1,18 @@
+{
+   "server_port": 5000,
+   "mongodb": {
+      "url": "mongodb://192.168.99.100:27017/d_n_d_shop",
+      "options": {
+         "useCreateIndex": true,
+         "useNewUrlParser": true,
+         "useFindAndModify": false
+      }
+   },
+   "jwt": {
+     "secret": "test",
+     "options": {
+       "issuer": "d_n_d_admin",
+       "expiresIn": "1h"
+     }
+   }
+}

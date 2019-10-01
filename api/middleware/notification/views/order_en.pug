@@ -1,0 +1,40 @@
+doctype html
+html(lang='en', dir='ltr')
+  head
+    meta(charset='utf-8')
+    style(type='text/css').
+      table {
+        border-collapse: collapse;
+      }
+      table, th, td {
+        border: 1px solid black;
+      }
+    title
+  body
+    div
+      p created_at: #{created_at}
+      p amount: #{amount} #{currency}
+      p discount_amount: #{discount_amount} #{currency}
+      p discount_rate: #{discount_rate}%
+      p product_count: #{product_count}
+      p first_name: #{first_name}
+      p last_name: #{last_name}
+      p email: #{email}
+    div
+      p address
+      p country: #{address.country}
+      p region: #{address.region}
+      p city: #{address.city}
+      p zip: #{address.zip}
+      p street: #{address.street}
+      p house: #{address.house}
+      p flat: #{address.flat}
+
+    table
+      tr
+        th product name
+        th quantity
+      for product in products
+        tr
+          td #{product.data.title}
+          td #{product.quantity}

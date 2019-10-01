@@ -1,0 +1,111 @@
+Database Entities:
+- Product;
+- Order;
+- Customer;
+- User;
+- Promo-code;
+- (Comment);
+- Cart;
+
+
+
+Product:
+- Id: ObjectId;
+- Stock Keeping Unit: String;
+- Title: String;
+- Description: String;
+- Text: Array of Objects;
+  - Header: String;
+  - Body: String;
+- Category: Array of Strings;
+- Quantity: Number;
+- Photos: Array of Strings;
+- Dimensions: Object;
+  - Height: Object;
+    - Value: Number;
+    - Unit: String;
+  - Width: Object;
+    - Value: Number;
+    - Unit: String;
+  - Depth: Object;
+    - Value: Number;
+    - Unit: String;
+- Weight: Object;
+  - Value: Number;
+  - Unit: String;
+- Technical Specifications: Object;
+  - (Display: String);
+  - Processor: String;
+  - Memory: String;
+  - Storage: String;
+  - Graphics: String;
+  - Input/Output Interfaces: String;
+  - Power Supply: String;
+  - Operating System: String;
+- Price: Array of Objects;
+  - Amount: Number;
+  - Currency: String;
+
+
+
+Order:
+- Id: ObjectId;
+- Customer Id: ObjectId;
+- Status: String;
+- Promocode: String;
+- Date: Date;
+- Products: Array of Objects;
+  - Product Id: ObjectId;
+  - Quantity: Number;
+- Price: Object;
+  - Amount: Number;
+  - Currency: String;
+  - Discount Amount: Number;
+  - Discount Rate: Number;
+- Shipping: Object;
+  - Method: String;
+  - Price: Object;
+    - Amount: Number;
+    - Currency: String;
+
+
+
+Customer:
+- Id: ObjectId;
+- Login: String;
+- Password: String;
+- First Name: String;
+- Last Name: String;
+- Phone: String;
+- Email: String:
+- Address: Object;
+  - Country: String;
+  - City: String;
+  - Zip: String;
+  - Street: String;
+  - House: String;
+  - Flat: Number;
+
+
+
+Promo-code:
+- Id: ObjectId;
+- Promocode: String;
+- Discount Rate: Number;
+
+
+
+Comment:
+- Id: ObjectId;
+- Title: String;
+- Text: String;
+- Date: Date;
+- Author: ObjectId;
+
+
+
+Cart:
+- Id: ObjectId;
+- Products: Array of Objects;
+  - Product Id: ObjectId;
+  - Quantity: Number;

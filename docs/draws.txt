@@ -1,0 +1,83 @@
+sudo nginx -p . -c nginx.conf
+
+Product Search
+sku
+title
+manufacture
+category
+type
+
+Product Filter
+manufacture .
+ratings
+category .
+type .
+is_available .
+is_new .
+is_feature .
+prices .
+
+
+
+
+module.exports.createOrder = async (req, res) => {
+  if (isObjectEmpty(req.body)) {
+    res.status(204).send({ status: 'payload_is_empty' });
+  } else {
+    const orderData = req.body;
+    const orderId = mongoose.Types.ObjectId();
+
+    const options = {
+      lean: true,
+      upsert: true,
+      new: true,
+      setDefaultsOnInsert: true
+    };
+
+    try {
+      let totalPrice = 0;
+      let discount;
+
+      for (var i = 0; i < orderData.products.length; i++) {
+        const productDoc = await productModel.findById(orderData.products[i].product_id, 'prices');
+
+        for (var j = 0; j < productDoc.prices.length; j++) {
+          let tempPrice = 0;
+
+          if (productDoc.prices[j].currency === orderData.currency) {
+            if (productDoc.prices[j].amount > productDoc.prices[j].discount_amount) {
+              tempPrice = orderData.products[i].quantity * productDoc.prices[j].discount_amount;
+            } else {
+              tempPrice = orderData.products[i].quantity * productDoc.prices[j].amount;
+            }
+          }
+
+          totalPrice += tempPrice;
+        }
+      }
+
+      discount = await promocodeController.getPriceWithDiscountLocal(totalPrice, orderData.promo_code);
+      orderData._id = orderId;
+      orderData.created_at = new Date().toISOString();
+      orderData.price = {
+        amount: totalPrice,
+        currency: orderData.currency,
+        discount_amount: discount.amount,
+        discount_rate: discount.rate
+      }
+      delete orderData.currency;
+
+      let createdOrder = await orderModel.create(orderData);
+
+      res.status(200).send({
+        status: 'order_was_created',
+        order_id: createdOrder._id,
+        total_price: createdOrder.price.discount_amount,
+        currency: createdOrder.price.currency
+      });
+
+    } catch (err) {
+      res.status(400).send({ error: err.message });
+    }
+  }
+};

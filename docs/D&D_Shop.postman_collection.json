@@ -1,0 +1,1779 @@
+{
+	"info": {
+		"_postman_id": "0ed54673-55cc-4779-88b6-85578a851bb9",
+		"name": "D&D_Shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Shop",
+			"item": [
+				{
+					"name": "Carts",
+					"item": [
+						{
+							"name": "Get All Carts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/cart/get_carts",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"cart",
+										"get_carts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Cart by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/cart/get_cart/:cart_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"cart",
+										"get_cart",
+										":cart_id"
+									],
+									"variable": [
+										{
+											"key": "cart_id",
+											"value": "5d5e8737b7f1a562cfc59dce"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Cart",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customer_id\": \"5d23007428cf556ad1897dfe\",\n\t\"products\": [\n\t\t{\n\t\t\t\"product_id\": \"5d22fc6fda157a685f82ed13\",\n\t\t\t\"quantity\": 10\n\t\t},\n\t\t{\n\t\t\t\"product_id\": \"5d22fc6fda157a685f82ed13\",\n\t\t\t\"quantity\": 5\n\t\t}\n\t]\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/cart/create_cart",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"cart",
+										"create_cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upsert Cart",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"products\": [\n\t\t{\n\t\t\t\"product_id\": \"5d5e240df59f081357346afe\",\n\t\t\t\"quantity\": 1\n\t\t},\n\t\t{\n\t\t\t\"product_id\": \"5d5e249af59f081357346b00\",\n\t\t\t\"quantity\": 4\n\t\t}\n\t]\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/cart/upsert_cart",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"cart",
+										"upsert_cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Cart by ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"products\": [\n\t\t{\n\t\t\t\"product_id\": \"5d22fc6fda157a685f82ed13\",\n\t\t\t\"quantity\": 10\n\t\t}\n\t]\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/cart/update_cart/:cart_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"cart",
+										"update_cart",
+										":cart_id"
+									],
+									"variable": [
+										{
+											"key": "cart_id",
+											"value": "5d494c6a55fa1f5c58f20544"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Cart by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/cart/delete_cart/:cart_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"cart",
+										"delete_cart",
+										":cart_id"
+									],
+									"variable": [
+										{
+											"key": "cart_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Product to Cart",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"cart_id\": \"5d636dcd33982e3122bd90cd\",\n\t\"product\": {\n\t\t\"product_id\": \"5d22fc6fda157a685f82ed15\",\n\t\t\"quantity\": 20\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/cart/add_to_cart",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"cart",
+										"add_to_cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product in Cart",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"cart_id\": \"5d636dcd33982e3122bd90cd\",\n\t\"product\": {\n\t\t\"product_id\": \"5d22fc6fda157a685f82ed15\",\n\t\t\"quantity\": 5\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/cart/update_in_cart",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"cart",
+										"update_in_cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Product from Cart",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"cart_id\": \"5d636dcd33982e3122bd90cd\",\n\t\"product_id\": \"5d22fc6fda157a685f82ed15\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/cart/remove_from_cart",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"cart",
+										"remove_from_cart"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Wishlist",
+					"item": [
+						{
+							"name": "Get All Wishlists",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/wishlist/get_wishlists",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"wishlist",
+										"get_wishlists"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Wishlist by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/wishlist/get_wishlist/:wishlist_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"wishlist",
+										"get_wishlist",
+										":wishlist_id"
+									],
+									"variable": [
+										{
+											"key": "wishlist_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Wishlist",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customer_id\": \"5d23007428cf556ad1897dfe\",\n\t\"products\": [\n\t\t{\n\t\t\t\"product_id\": \"5d22fc6fda157a685f82ed13\"\n\t\t},\n\t\t{\n\t\t\t\"product_id\": \"5d22fc6fda157a685f82ed13\"\n\t\t}\n\t]\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/wishlist/create_wishlist",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"wishlist",
+										"create_wishlist"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Wishlist by ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"products\": [\n\t\t{\n\t\t\t\"product_id\": \"5d22fc6fda157a685f82ed13\",\n\t\t\t\"quantity\": 10\n\t\t}\n\t]\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/wishlist/update_wishlist/:wishlist_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"wishlist",
+										"update_wishlist",
+										":wishlist_id"
+									],
+									"variable": [
+										{
+											"key": "wishlist_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Wishlist by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/wishlist/delete_wishlist/:wishlist_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"wishlist",
+										"delete_wishlist",
+										":wishlist_id"
+									],
+									"variable": [
+										{
+											"key": "wishlist_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Get All Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/get_products?size=10&page_number=1",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"get_products"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "10"
+										},
+										{
+											"key": "page_number",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Recomended Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/get_recommended_products/:customer_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"get_recommended_products",
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
+											"value": "5d5a23ba8515f21f0a7ac4c9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Products Page Count",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/get_page_count?size=6",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"get_page_count"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/get_product/:product_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"get_product",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "5d494dc58f0edf5df5ba6fcb"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product By SKU or Title",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/get_product_sku/:sku_title?",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"get_product_sku",
+										":sku_title"
+									],
+									"query": [
+										{
+											"key": "product_upc",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "sku_title",
+											"value": "product 1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"upc\": 65478679845,\n\t\"sku\": \"hjfklggk98465\",\n\t\"title\": \"Boosted Plus\",\n\t\"subtitle\": {\n\t\t\"en\": \"en subtitle\",\n\t\t\"ru\": \"ru subtitle\",\n\t\t\"kz\": \"kz subtitle\"\n\t},\n\t\"manufacture\": \"manufacture name\",\n\t\"description\": {\n\t\t\"en\": \"The new classic\",\n\t\t\"ru\": \"The new classic\",\n\t\t\"kz\": \"The new classic\"\n\t},\n\t\"type\": \"comp\",\n\t\"category\": [\"cat1\", \"cat2\", \"cat3\"],\n\t\"quantity\": 100,\n\t\"is_available\": true,\n\t\"is_new\": false,\n\t\"shipping\": {\n\t\t\"weight\": {\n\t\t\t\"value\": 12,\n\t\t\t\"unit\": \"kg\"\n\t\t},\n\t\t\"dimensions\": {\n\t\t\t\"width\": {\n\t\t\t\t\"value\": 2,\n\t\t\t\t\"unit\": \"m\"\n\t\t\t},\n\t\t\t\"depth\": {\n\t\t\t\t\"value\": 4,\n\t\t\t\t\"unit\": \"m\"\n\t\t\t},\n\t\t\t\"height\": {\n\t\t\t\t\"value\": 5,\n\t\t\t\t\"unit\": \"m\"\n\t\t\t}\n\t\t}\n\t},\n\t\"photos\": [\"https://images.ctfassets.net/axbo81ontyws/5BKWL1v6OQMg8i6aQAoC0u/8ac6c3dfdbf51e29a3b7d8e0acaa4490/boosted-stealth-electric-skateboard.jpg\"],\n\t\"prices\": [\n\t\t{\"amount\": 1299, \"currency\": \"USD\", \"discount_amount\": 1299 }\n\t],\n\t\"colors\": [\"red\", \"blue\"],\n\t\"attributes\": [\n\t\t{\"key\": \"attr1\", \"value\": \"24 mph Top Speed\"},\n\t\t{\"key\": \"attr2\", \"value\": \"Super Flex Composite Deck\"},\n\t\t{\"key\": \"attr2\", \"value\": \"Extended Range (14 Miles)\"}\n\t]\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/create_product",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"create_product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Product by ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"upc\": 111111111111,\n\t\"sku\": \"g127bhcb3712\",\n\t\"title\": \"product 1\",\n\t\"subtitle\": {\n\t\t\"en\": \"en subtitle\",\n\t\t\"ru\": \"ru subtitle\",\n\t\t\"kz\": \"kz subtitle\"\n\t},\n\t\"description\": {\n\t\t\"en\": \"en description\",\n\t\t\"ru\": \"ru description\",\n\t\t\"kz\": \"kz description\"\n\t},\n\t\"type\": \"comp\",\n\t\"category\": [\"cat1\", \"cat2\", \"cat3\"],\n\t\"quantity\": 100,\n\t\"shipping\": {\n\t\t\"weight\": {\n\t\t\t\"value\": 12,\n\t\t\t\"unit\": \"kg\"\n\t\t},\n\t\t\"dimensions\": {\n\t\t\t\"width\": {\n\t\t\t\t\"value\": 2,\n\t\t\t\t\"unit\": \"m\"\n\t\t\t},\n\t\t\t\"depth\": {\n\t\t\t\t\"value\": 4,\n\t\t\t\t\"unit\": \"m\"\n\t\t\t},\n\t\t\t\"height\": {\n\t\t\t\t\"value\": 5,\n\t\t\t\t\"unit\": \"m\"\n\t\t\t}\n\t\t}\n\t},\n\t\"photos\": [\"photo1\", \"photo2\", \"photo3\"],\n\t\"prices\": [\n\t\t{\"amount\": 1234, \"currency\": \"USD\"},\n\t\t{\"amount\": 123, \"currency\": \"RUB\"},\n\t\t{\"amount\": 5435, \"currency\": \"KZT\"}\n\t],\n\t\"attributes\": [\n\t\t{\"key\": \"attr1\", \"value\": \"value1\"},\n\t\t{\"key\": \"attr2\", \"value\": \"value2\"},\n\t\t{\"key\": \"attr3\", \"value\": \"value3\"},\n\t\t{\"key\": \"attr4\", \"value\": \"value4\"},\n\t\t{\"key\": \"attr5\", \"value\": \"value5\"},\n\t\t{\"key\": \"attr6\", \"value\": \"value6\"},\n\t\t{\"key\": \"attr7\", \"value\": \"value7\"},\n\t\t{\"key\": \"attr8\", \"value\": \"value8\"},\n\t\t{\"key\": \"attr9\", \"value\": \"value9\"}\n\t]\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/update_product/:product_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"update_product",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "5d22fc6fda157a685f82ed13"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Product by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/delete_product/:product_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"delete_product",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product Rating By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/get_product_rating/:product_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"get_product_rating",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "5d37f06e5684d57590e194d9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Set Product Rating by ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"rating\": 4\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/set_product_rating/:product_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"set_product_rating",
+										":product_id"
+									],
+									"variable": [
+										{
+											"key": "product_id",
+											"value": "5d37f06e5684d57590e194d9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Products by Attributes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/get_products_by_attributes?cpu=intel",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"get_products_by_attributes"
+									],
+									"query": [
+										{
+											"key": "cpu",
+											"value": "intel"
+										},
+										{
+											"key": "attr2",
+											"value": "some 2",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Products Uni",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"match\": {\n\t\t\"manufacture\": [\"i\", \"manufacture name\"],\n\t\t\"prices\": {\n\t\t\t\"currency\": \"USD\",\n\t\t\t\"from\": 3,\n\t\t\t\"to\": 20\n\t\t}\n\t},\n\t\"sort\": {\n\t\t\"rating\": 1,\n\t\t\"amount\": 1,\n\t\t\"created_at\": 1,\n\t\t\"title\": 1\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/product/get_products",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"product",
+										"get_products"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Orders",
+					"item": [
+						{
+							"name": "Get All Orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/order/get_orders",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"order",
+										"get_orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Order By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/order/get_order/:order_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"order",
+										"get_order",
+										":order_id"
+									],
+									"variable": [
+										{
+											"key": "order_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customer_id\": \"5d5a23ba8515f21f0a7ac4c9\",\n\t\"products\": [\n\t\t{\n\t\t\t\"product_id\": \"5d6ccf8975632e5352e354fc\",\n\t\t\t\"quantity\": 1\n\t\t},\n\t\t{\n\t\t\t\"product_id\": \"5d6cd14c75632e5352e354fe\",\n\t\t\t\"quantity\": 3\n\t\t}\n\t],\n\t\"promo_code\": \"abc\",\n\t\"currency\": \"USD\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/order/create_order",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"order",
+										"create_order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Order by ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"products\": [\n\t\t{\n\t\t\t\"product_id\": \"5d22fc6fda157a685f82ed13\",\n\t\t\t\"quantity\": 10\n\t\t},\n\t\t{\n\t\t\t\"product_id\": \"5d22fc6fda157a685f82ed13\",\n\t\t\t\"quantity\": 10\n\t\t},\n\t\t{\n\t\t\t\"product_id\": \"5d22fc6fda157a685f82ed13\",\n\t\t\t\"quantity\": 10\n\t\t}\n\t],\n\t\"promo_code\": \"abc\",\n\t\"currency\": \"USD\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/order/update_order/:order_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"order",
+										"update_order",
+										":order_id"
+									],
+									"variable": [
+										{
+											"key": "order_id",
+											"value": "5d231a26a008df76c41eda1a"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Order by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/order/delete_order/:order_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"order",
+										"delete_order",
+										":order_id"
+									],
+									"variable": [
+										{
+											"key": "order_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Send Order Reciept",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/order/send_order_email/:order_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"order",
+										"send_order_email",
+										":order_id"
+									],
+									"variable": [
+										{
+											"key": "order_id",
+											"value": "5d6dd9b440f72420009e827e"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Customers",
+					"item": [
+						{
+							"name": "Get All Customers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/get_customers",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"get_customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Customer By ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/get_customer/:customer_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"get_customer",
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Customer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"login\": \"test\",\n\t\"password\": \"12345\",\n\t\"first_name\": \"s\",\n\t\"last_name\": \"a\",\n\t\"email\": \"test@s.com\",\n\t\"phone\": \"+77777777777\",\n\t\"address\": {\n\t\t\"country\": \"\",\n\t\t\"region\": \"\",\n\t\t\"city\": \"\",\n\t\t\"zip\": \"\",\n\t\t\"street\": \"\",\n\t\t\"house\": \"\",\n\t\t\"flat\": \"\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/create_customer",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"create_customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Customer by ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"login\": \"dasdas\",\n\t\"password\": \"213123123dsasdas\",\n\t\"first_name\": \"s\",\n\t\"last_name\": \"a\",\n\t\"email\": \"test@s.com\",\n\t\"phone\": \"+77777777777\",\n\t\"address\": {\n\t\t\"country\": \"\",\n\t\t\"region\": \"\",\n\t\t\"city\": \"\",\n\t\t\"zip\": \"\",\n\t\t\"street\": \"\",\n\t\t\"house\": \"\",\n\t\t\"flat\": \"\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/update_customer/:customer_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"update_customer",
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
+											"value": "5d23017d28cf556ad1897dff"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Customer by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/delete_customer/:customer_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"delete_customer",
+										":customer_id"
+									],
+									"variable": [
+										{
+											"key": "customer_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign Up",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"login\": \"test12\",\n\t\"password\": \"12345\",\n\t\"first_name\": \"s\",\n\t\"last_name\": \"a\",\n\t\"email\": \"test12@s.com\",\n\t\"phone\": \"+77777777777\",\n\t\"address\": {\n\t\t\"country\": \"\",\n\t\t\"region\": \"\",\n\t\t\"city\": \"\",\n\t\t\"zip\": \"\",\n\t\t\"street\": \"\",\n\t\t\"house\": \"\",\n\t\t\"flat\": \"\"\n\t}\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/sign_up",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"sign_up"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign In",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"login\": \"test12\",\n\t\"password\": \"12345\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/sign_in",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"sign_in"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign Out",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDQwMWVjMGRmNGQwNTFlNjY5MDExOWEiLCJsb2dpbiI6InRlc3QxMiIsImlhdCI6MTU2NDQ4NDYwMiwiZXhwIjoxNTY0NDg4MjAyLCJpc3MiOiJkX25fZF9hZG1pbiJ9.gHzYSkXQzbQc-AElKfhVQ2xfOrSEL1mYWJ0JbixTQd0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/sign_out",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"sign_out"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"login\": \"test12\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/forgot",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"forgot"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Restore Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"login\": \"sa\",\n\t\"password\": \"1234567890\",\n\t\"code\": \"i18ood9j\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/customer/restore",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"customer",
+										"restore"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Promo Codes",
+					"item": [
+						{
+							"name": "Get All Promo Codes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/promo_code/get_promo_codes",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"promo_code",
+										"get_promo_codes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Promo Codes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/promo_code/get_promo_code/:promo_code",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"promo_code",
+										"get_promo_code",
+										":promo_code"
+									],
+									"variable": [
+										{
+											"key": "promo_code",
+											"value": "abc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get discounted Price by Promo Code",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/promo_code/get_discount_price/:price/:promo_code",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"promo_code",
+										"get_discount_price",
+										":price",
+										":promo_code"
+									],
+									"variable": [
+										{
+											"key": "price",
+											"value": ""
+										},
+										{
+											"key": "promo_code",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Promo Codes",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"promo_code\": \"abcde\",\n\t\"discount_rate\": 101\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/promo_code/create_promo_code",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"promo_code",
+										"create_promo_code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Promo Codes by Name",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"discount_rate\": 0\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/promo_code/update_promo_code/:promocode",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"promo_code",
+										"update_promo_code",
+										":promocode"
+									],
+									"variable": [
+										{
+											"key": "promocode",
+											"value": "abcd"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Promo Codes by Name",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/promo_code/delete_promo_code/:promocode",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"promo_code",
+										"delete_promo_code",
+										":promocode"
+									],
+									"variable": [
+										{
+											"key": "promocode",
+											"value": "abcd"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Comments",
+					"item": [
+						{
+							"name": "Get all Comments",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/comment/get_comments",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"comment",
+										"get_comments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Comment by ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/comment/get_comment/:comment_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"comment",
+										"get_comment",
+										":comment_id"
+									],
+									"variable": [
+										{
+											"key": "comment_id",
+											"value": "5d394fe8ba33072da7dbc518"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Comment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customer_id\": \"5d358f3010ea9c776f1b6ee8\",\n\t\"product_id\": \"5d37f06e5684d57590e194d9\",\n\t\"text\": \"thank, really good =)\",\n\t\"product_rating\": 5\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/comment/create_comment",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"comment",
+										"create_comment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Comment by ID",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"text\": \"quite good =)\",\n\t\"product_rating\": 5\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/comment/update_comment/:comment_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"comment",
+										"update_comment",
+										":comment_id"
+									],
+									"variable": [
+										{
+											"key": "comment_id",
+											"value": "5d39741e2c2d223ed702966e"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Comment by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{Local Host URL}}/shop/comment/delete_comment/:comment_id",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"comment",
+										"delete_comment",
+										":comment_id"
+									],
+									"variable": [
+										{
+											"key": "comment_id",
+											"value": "5d3973d52c2d223ed702966b"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Get Categories",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"performance pc g\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/category/get_categories",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"category",
+										"get_categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"performance pc g\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/category/get_category/:category",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"category",
+										"get_category",
+										":category"
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "performance pc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"performance pc g\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/category/create_category",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"category",
+										"create_category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Category",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"performance pc gaming\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/category/update_category/:category",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"category",
+										"update_category",
+										":category"
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "performance pc g"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"performance pc g\"\n}"
+								},
+								"url": {
+									"raw": "{{Local Host URL}}/shop/category/delete_category/:category",
+									"host": [
+										"{{Local Host URL}}"
+									],
+									"path": [
+										"shop",
+										"category",
+										"delete_category",
+										":category"
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "performance pc"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}

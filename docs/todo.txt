@@ -1,0 +1,23 @@
+cd Database Schemes:
+- [x] (a) product - 07/22/2019;
+- [x] (a) order - 07/22/2019;
+- [x] (a) customer - 07/22/2019;
+- [x] (a) cart - 07/22/2019;
+- [x] (a) promo_code - 07/22/2019;
+- [x] (a) comment - 07/25/2019;
+
+CRUD Operations:
+- [x] (a) product - 07/22/2019;
+- [x] (a) order - 07/22/2019;
+- [x] (a) customer - 07/22/2019;
+- [x] (a) cart - 07/22/2019;
+- [x] (a) promo_code - 07/22/2019;
+- [x] (a) comment - 07/25/2019;
+
+Middleware:
+- [x] (a) Auth 07/30/2019;
+- [x] (a) Reset Password - 07/30/2019;
+- [x] (c) HTTP Log 07/24/2019;
+
+Miscellaneous:
+- [x] (b) set/get Product Rating - 07/26/2019;
